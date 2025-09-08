@@ -1,1 +1,193 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==============================
+   TIPOGRAPHIC SYSTEM
+   ============================== */
+
+:root {
+  --font-family-base: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* ========== 12px = 0.75rem ========== */
+.text-xs-regular {
+  font-family: var(--font-family-base);
+  font-size: 0.75rem;       /* 12px */
+  font-weight: var(--font-weight-regular);
+  line-height: 1rem;        /* 16px */
+}
+
+.text-xs-medium {
+  font-family: var(--font-family-base);
+  font-size: 0.75rem;       /* 12px */
+  font-weight: var(--font-weight-medium);
+  line-height: 1rem;        /* 16px */
+}
+
+/* ========== 14px = 0.875rem ========== */
+.text-sm-regular {
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;      /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25rem;     /* 20px */
+}
+
+.text-sm-medium {
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;      /* 14px */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25rem;     /* 20px */
+}
+
+.text-sm-semibold {
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;      /* 14px */
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25rem;     /* 20px */
+}
+
+.text-sm-bold {
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;      /* 14px */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.25rem;     /* 20px */
+}
+
+/* ========== 16px = 1rem ========== */
+.text-base-regular {
+  font-family: var(--font-family-base);
+  font-size: 1rem;          /* 16px */
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5rem;      /* 24px */
+}
+
+.text-base-medium {
+  font-family: var(--font-family-base);
+  font-size: 1rem;          /* 16px */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5rem;      /* 24px */
+}
+
+.text-base-semibold {
+  font-family: var(--font-family-base);
+  font-size: 1rem;          /* 16px */
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5rem;      /* 24px */
+}
+
+.text-base-bold {
+  font-family: var(--font-family-base);
+  font-size: 1rem;          /* 16px */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.25rem;     /* 20px */
+}
+
+/* ========== 18px = 1.125rem ========== */
+.text-md-medium {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;      /* 18px */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.75rem;     /* 28px */
+}
+
+.text-md-semibold {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;      /* 18px */
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.75rem;     /* 28px */
+}
+
+/* ========== 20px = 1.25rem ========== */
+.text-lg-regular {
+  font-family: var(--font-family-base);
+  font-size: 1.25rem;       /* 20px */
+  font-weight: var(--font-weight-regular);
+  line-height: 1.75rem;     /* 28px */
+}
+
+.text-lg-bold {
+  font-family: var(--font-family-base);
+  font-size: 1.25rem;       /* 20px */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.75rem;     /* 28px */
+}
+
+/* ========== 24px = 1.5rem ========== */
+.text-xl-bold {
+  font-family: var(--font-family-base);
+  font-size: 1.5rem;        /* 24px */
+  font-weight: var(--font-weight-bold);
+  line-height: 2rem;        /* 32px */
+}
+
+/* ========== 30px = 1.875rem ========== */
+.text-xxl-bold {
+  font-family: var(--font-family-base);
+  font-size: 1.875rem;      /* 30px */
+  font-weight: var(--font-weight-bold);
+  line-height: 2.25rem;     /* 36px */
+}
+
+/* ========== 36px = 2.25rem ========== */
+.text-xxxl-bold {
+  font-family: var(--font-family-base);
+  font-size: 2.25rem;       /* 36px */
+  font-weight: var(--font-weight-bold);
+  line-height: 2.5rem;      /* 40px */
+}
+
+/* ==============================
+   COLOR SYSTEM
+   ============================== */
+
+:root {
+  --color-white: #FFFFFF;
+  --color-blue: #0284C7;
+  --color-dark-blue: #1E40AF;
+  --color-light-blue: #3B82F6;
+  --color-green: #16A34A;
+  --color-dark-green: #166534;
+  --color-light-green: #DCFCE7;
+  --color-orange: #EA580C;
+  --color-red: #DC2626;
+  --color-amber: #F59E0B;
+  --color-rose: #EF4444;
+  --color-violet: #8B5CF6;
+  --color-dark-violet: #6B21A8;
+  --color-light-violet: #F3E8FF;
+  --color-cyan: #06B6D4;
+  --color-emerald: #10B981;
+  --color-gray: #4B5563;
+  --color-dark: #111827;
+  --color-light: #999999;
+}
+
+/* Text Colors */
+.text-white { color: var(--color-white); }
+.text-light { color: var(--color-light); }
+.text-gray { color: var(--color-gray); }
+.text-dark { color: var(--color-dark); }
+.text-blue { color: var(--color-blue); }
+.text-dark-blue { color: var(--color-dark-blue); }
+.text-green { color: var(--color-green); }
+.text-dark-green { color: var(--color-dark-green); }
+.text-orange { color: var(--color-orange); }
+.text-red { color: var(--color-red); }
+.text-dark-violet { color: var(--color-dark-violet); }
+
+/* Background Colors */
+.bg-blue { background-color: var(--color-blue); }
+.bg-green { background-color: var(--color-green); }
+.bg-orange { background-color: var(--color-orange); }
+.bg-light-blue { background-color: var(--color-light-blue); }
+.bg-light-green { background-color: var(--color-light-green); }
+.bg-light-violet { background-color: var(--color-light-violet); }
+.bg-light { background-color: var(--color-light); }
+
+/* Circle Colors */
+.circle-amber { background-color: var(--color-amber); }
+.circle-rose { background-color: var(--color-rose); }
+.circle-violet { background-color: var(--color-violet); }
+.circle-cyan { background-color: var(--color-cyan); }
+.circle-emerald { background-color: var(--color-emerald); }
