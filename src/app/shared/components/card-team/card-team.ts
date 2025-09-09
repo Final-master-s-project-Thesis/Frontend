@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-card-team',
-  imports: [],
+  standalone: true,
+  selector: 'card-team',
   templateUrl: './card-team.html',
-  styleUrl: './card-team.css'
+  styleUrls: ['./card-team.css'],
+  imports: [CommonModule],
 })
 export class CardTeam {
+  @Input() name: string = 'Premier League';
+  @Input() subname: string = 'Inglaterra';
+  @Input() data: string = '20 partidos';
+  @Input() color: string = 'blue';
+  @Input() id: string = '';
 
+  @Output() cardSelected = new EventEmitter<string>();
+
+  onClick() {
+    this.cardSelected.emit(this.id);
+  }
 }

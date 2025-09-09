@@ -1,1 +1,149 @@
-<p>general works!</p>
+<div *ngIf="!isLoading">
+  <div class="column">
+    <h1 class="text-xxxl-bold text-dark center">Sistema de recomendación de fichajes de fútbol</h1>
+    <div class="center">
+      <h2 class="text-lg-regular text-gray subtitle">
+        Descubre las estadísticas más completas de jugadores de fútbol basadas en Football Manager y
+        estadísiticas de rendimiento reales
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card column">
+      <label class="text-xxl-bold text-blue">8</label>
+      <p class="nomargin text-base-regular text-gray">Ligas Disponibles</p>
+    </div>
+    <div class="card column">
+      <label class="text-xxl-bold text-green">148</label>
+      <p class="nomargin text-base-regular text-gray">Clubes Registrados</p>
+    </div>
+    <div class="card column">
+      <label class="text-xxl-bold text-orange">2837</label>
+      <p class="nomargin text-base-regular text-gray">Jugadores Analizados</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="row" style="justify-content: space-between">
+      <p class="nomargin text-xl-bold">Ligas principales</p>
+      <button
+        class="see-more nopadding text-base-medium text-blue"
+        (click)="navigateToFilterLeague()"
+      >
+        Ver más
+      </button>
+    </div>
+    <div class="row">
+      <card-team
+        name="Premier League"
+        subname="Nacimiento: 1888-1889"
+        data="Masculino"
+        color="#0284c7"
+        id="9"
+        (cardSelected)="handleLeagueSelected($event)"
+      >
+      </card-team>
+      <card-team
+        name="La Liga"
+        subname="Nacimiento: 1988-1989"
+        data="Masculino"
+        color="#0284c7"
+        id="12"
+        (cardSelected)="handleLeagueSelected($event)"
+      >
+      </card-team>
+      <card-team
+        name="Bundesliga"
+        subname="Nacimiento: 1988-1989"
+        data="Masculino"
+        color="#0284c7"
+        id="20"
+        (cardSelected)="handleLeagueSelected($event)"
+      >
+      </card-team>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="row" style="justify-content: space-between">
+      <p class="nomargin text-xl-bold">Clubes destacados</p>
+      <button
+        class="see-more nopadding text-base-medium text-blue"
+        (click)="navigateToFilterClub()"
+      >
+        Ver más
+      </button>
+    </div>
+    <div class="row">
+      <card-team
+        name="Barcelona"
+        subname="La Liga"
+        data="38 partidos"
+        color="#16a34a"
+        id="206d90db"
+        (cardSelected)="handleClubSelected($event)"
+      >
+      </card-team>
+      <card-team
+        name="FC Bayern"
+        subname="Bundesliga"
+        data="34 partidos"
+        color="#16a34a"
+        id="054efa67"
+        (cardSelected)="handleClubSelected($event)"
+      >
+      </card-team>
+      <card-team
+        name="R. Madrid"
+        subname="La Liga"
+        data="38 partidos"
+        color="#16a34a"
+        id="53a2f082"
+        (cardSelected)="handleClubSelected($event)"
+      >
+      </card-team>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="row" style="justify-content: space-between">
+      <p class="nomargin text-xl-bold">Jugadores destacados</p>
+      <button class="see-more nopadding text-base-medium text-blue" (click)="navigateToSearch()">
+        Ver más
+      </button>
+    </div>
+    <div class="row">
+      <card-team
+        name="Marcos Llorente"
+        subname="ESP"
+        data="28 años - 78.000.000 €"
+        color="#ea580c"
+        id="02c15616"
+        (cardSelected)="handlePlayerSelected($event)"
+      >
+      </card-team>
+      <card-team
+        name="Gavi"
+        subname="ESP"
+        data="18 años - 140.500.000 €"
+        color="#ea580c"
+        id="19cae58d"
+        (cardSelected)="handlePlayerSelected($event)"
+      >
+      </card-team>
+      <card-team
+        name="Angel Di Maria"
+        subname="ARG"
+        data="35 años - 1.925.000 €"
+        color="#ea580c"
+        id="19cda00b"
+        (cardSelected)="handlePlayerSelected($event)"
+      >
+      </card-team>
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading-container">
+  <p>Cargando...</p>
+</div>

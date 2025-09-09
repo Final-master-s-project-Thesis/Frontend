@@ -1,0 +1,50 @@
+.card-caracteristic {
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  padding-left: 30px;
+  max-width: 340px;
+}
+
+.circulo {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-light-blue);
+  border-radius: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.row-start {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 10px;
+}
+
+.column {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: start;
+  gap: 0.5rem;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.subname {
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
+.data {
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+}

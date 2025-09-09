@@ -3,7 +3,7 @@ import { Repository } from '../../base/repository.repository';
 import { League } from '../../models/league/league';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LeagueRepository extends Repository {
   constructor(protected override injector: Injector) {
@@ -11,6 +11,6 @@ export class LeagueRepository extends Repository {
   }
 
   getLeagues() {
-    return this.doRequest<League[]>('get', `/leagues`);
+    return this.doRequest<League[]>('get', `/leagues/`);
   }
 }

@@ -3,17 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { General } from './general';
 
-export const routes: Routes = [
-  { path: '', component: General },
-  {
-    path: 'filter-leagues',
-    loadChildren: () => import('../filter-leagues/filter-leagues.routes').then((m) => m.routes),
-  },
-  {
-    path: 'filter-teams',
-    loadChildren: () => import('../filter-teams/filter-teams.routes').then((m) => m.routes),
-  },
-];
+export const routes: Routes = [{ path: '', component: General }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

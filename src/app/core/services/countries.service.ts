@@ -4,7 +4,7 @@ import { CountriesRepository } from '../respository/countries/countries,reposito
 @Injectable({
   providedIn: 'root',
 })
-export class CompareService {
+export class CountriesService {
   constructor(private repo: CountriesRepository) {}
 
   getCountries() {

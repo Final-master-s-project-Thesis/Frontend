@@ -3,7 +3,7 @@ import { Repository } from '../../base/repository.repository';
 import { Country } from '../../models/country/country';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CountriesRepository extends Repository {
   constructor(protected override injector: Injector) {
@@ -11,6 +11,6 @@ export class CountriesRepository extends Repository {
   }
 
   getCountries() {
-    return this.doRequest<Country[]>('get', `/countries`);
+    return this.doRequest<Country[]>('get', `/countries/`);
   }
 }

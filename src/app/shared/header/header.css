@@ -20,6 +20,7 @@
   }
 
   .menu {
+    align-items: center;
     list-style: none;
     display: flex;
     gap: 2.5rem;

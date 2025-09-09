@@ -1,4 +1,14 @@
 /* ==============================
+   GLOBAL STYLES
+   ============================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* 16px */
+}
+
+/* ==============================
    TIPOGRAPHIC SYSTEM
    ============================== */
 
@@ -10,131 +20,131 @@
   --font-weight-bold: 700;
 }
 
-/* ========== 12px = 0.75rem ========== */
+/* ========== XS ahora es 16px (antes base) ========== */
 .text-xs-regular {
   font-family: var(--font-family-base);
-  font-size: 0.75rem; /* 12px */
+  font-size: 1rem; /* 16px */
   font-weight: var(--font-weight-regular);
-  line-height: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
 }
 
 .text-xs-medium {
   font-family: var(--font-family-base);
-  font-size: 0.75rem; /* 12px */
+  font-size: 1rem; /* 16px */
   font-weight: var(--font-weight-medium);
-  line-height: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
 }
 
-/* ========== 14px = 0.875rem ========== */
+/* ========== SM ahora es 18px (antes md) ========== */
 .text-sm-regular {
   font-family: var(--font-family-base);
-  font-size: 0.875rem; /* 14px */
+  font-size: 1.125rem; /* 18px */
   font-weight: var(--font-weight-regular);
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
 }
 
 .text-sm-medium {
   font-family: var(--font-family-base);
-  font-size: 0.875rem; /* 14px */
+  font-size: 1.125rem; /* 18px */
   font-weight: var(--font-weight-medium);
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
 }
 
 .text-sm-semibold {
   font-family: var(--font-family-base);
-  font-size: 0.875rem; /* 14px */
+  font-size: 1.125rem; /* 18px */
   font-weight: var(--font-weight-semibold);
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
 }
 
 .text-sm-bold {
   font-family: var(--font-family-base);
-  font-size: 0.875rem; /* 14px */
+  font-size: 1.125rem; /* 18px */
   font-weight: var(--font-weight-bold);
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
 }
 
-/* ========== 16px = 1rem ========== */
+/* ========== BASE ahora es 20px (antes lg) ========== */
 .text-base-regular {
   font-family: var(--font-family-base);
-  font-size: 1rem; /* 16px */
+  font-size: 1.25rem; /* 20px */
   font-weight: var(--font-weight-regular);
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.75rem; /* 28px */
 }
 
 .text-base-medium {
   font-family: var(--font-family-base);
-  font-size: 1rem; /* 16px */
+  font-size: 1.25rem; /* 20px */
   font-weight: var(--font-weight-medium);
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.75rem; /* 28px */
 }
 
 .text-base-semibold {
   font-family: var(--font-family-base);
-  font-size: 1rem; /* 16px */
+  font-size: 1.25rem; /* 20px */
   font-weight: var(--font-weight-semibold);
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.75rem; /* 28px */
 }
 
 .text-base-bold {
   font-family: var(--font-family-base);
-  font-size: 1rem; /* 16px */
+  font-size: 1.25rem; /* 20px */
   font-weight: var(--font-weight-bold);
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
 }
 
-/* ========== 18px = 1.125rem ========== */
+/* ========== MD ahora es 24px (antes xl) ========== */
 .text-md-medium {
   font-family: var(--font-family-base);
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.5rem; /* 24px */
   font-weight: var(--font-weight-medium);
-  line-height: 1.75rem; /* 28px */
+  line-height: 2rem; /* 32px */
 }
 
 .text-md-semibold {
   font-family: var(--font-family-base);
-  font-size: 1.125rem; /* 18px */
-  font-weight: var(--font-weight-semibold);
-  line-height: 1.75rem; /* 28px */
-}
-
-/* ========== 20px = 1.25rem ========== */
-.text-lg-regular {
-  font-family: var(--font-family-base);
-  font-size: 1.25rem; /* 20px */
-  font-weight: var(--font-weight-regular);
-  line-height: 1.75rem; /* 28px */
-}
-
-.text-lg-bold {
-  font-family: var(--font-family-base);
-  font-size: 1.25rem; /* 20px */
-  font-weight: var(--font-weight-bold);
-  line-height: 1.75rem; /* 28px */
-}
-
-/* ========== 24px = 1.5rem ========== */
-.text-xl-bold {
-  font-family: var(--font-family-base);
   font-size: 1.5rem; /* 24px */
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   line-height: 2rem; /* 32px */
 }
 
-/* ========== 30px = 1.875rem ========== */
-.text-xxl-bold {
+/* ========== LG ahora es 30px (antes xxl) ========== */
+.text-lg-regular {
+  font-family: var(--font-family-base);
+  font-size: 1.875rem; /* 30px */
+  font-weight: var(--font-weight-regular);
+  line-height: 2.25rem; /* 36px */
+}
+
+.text-lg-bold {
   font-family: var(--font-family-base);
   font-size: 1.875rem; /* 30px */
   font-weight: var(--font-weight-bold);
   line-height: 2.25rem; /* 36px */
 }
 
-/* ========== 36px = 2.25rem ========== */
-.text-xxxl-bold {
+/* ========== XL ahora es 36px (antes xxxl) ========== */
+.text-xl-bold {
   font-family: var(--font-family-base);
   font-size: 2.25rem; /* 36px */
   font-weight: var(--font-weight-bold);
   line-height: 2.5rem; /* 40px */
+}
+
+/* ========== XXL ahora es 48px (nuevo escalado) ========== */
+.text-xxl-bold {
+  font-family: var(--font-family-base);
+  font-size: 3rem; /* 48px */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+/* ========== XXXL ahora es 52px (nuevo escalado) ========== */
+.text-xxxl-bold {
+  font-family: var(--font-family-base);
+  font-size: 3.25rem; /* 52px */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
 }
 
 /* ==============================
@@ -161,6 +171,29 @@
   --color-gray: #4b5563;
   --color-dark: #111827;
   --color-light: #999999;
+}
+
+/* Dark mode variables */
+.dark-mode {
+  --color-white: #18181b;
+  --color-blue: #0ea5e9;
+  --color-dark-blue: #1e293b;
+  --color-light-blue: #2563eb;
+  --color-green: #22d3ee;
+  --color-dark-green: #134e4a;
+  --color-light-green: #064e3b;
+  --color-orange: #ea580c;
+  --color-red: #ef4444;
+  --color-amber: #fbbf24;
+  --color-rose: #fb7185;
+  --color-violet: #a78bfa;
+  --color-dark-violet: #7c3aed;
+  --color-light-violet: #312e81;
+  --color-cyan: #22d3ee;
+  --color-emerald: #34d399;
+  --color-gray: #d1d5db;
+  --color-dark: #f3f4f6;
+  --color-light: #52525b;
 }
 
 /* Text Colors */
@@ -243,10 +276,12 @@
    ============================== */
 
 .card {
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  background-color: var(--color-white);
-  padding: 0.75rem 1rem; /* 12px 16px */
+  padding: 2rem 3rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb; /* gris muy claro */
+  text-align: center;
 }
 
 .card-action {
@@ -255,4 +290,11 @@
   background-color: var(--color-white);
   cursor: pointer;
   padding: 0.75rem 1rem;
+}
+
+.see-more {
+  background-color: var(--color-white);
+  border: 0;
+  text-align: center;
+  cursor: pointer;
 }

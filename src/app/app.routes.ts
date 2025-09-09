@@ -3,23 +3,32 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'general',
-    loadChildren: () => import('./pages/general/general.routes').then((m) => m.routes),
+    loadComponent: () => import('./pages/general/general').then((m) => m.General),
   },
   {
     path: 'search',
-    loadChildren: () => import('./pages/search/search.routes').then((m) => m.routes),
+    loadComponent: () => import('./pages/search/search').then((m) => m.Search),
   },
   {
     path: 'compare',
-    loadChildren: () => import('./pages/compare/compare.routes').then((m) => m.routes),
+    loadComponent: () => import('./pages/compare/compare').then((m) => m.Compare),
   },
   {
     path: 'similar',
-    loadChildren: () => import('./pages/similar/similar.routes').then((m) => m.routes),
+    loadComponent: () => import('./pages/similar/similar').then((m) => m.Similar),
   },
   {
     path: 'player',
-    loadChildren: () => import('./pages/player/player.routes').then((m) => m.routes),
+    loadComponent: () => import('./pages/player/player').then((m) => m.Player),
+  },
+  {
+    path: 'filter-leagues',
+    loadChildren: () =>
+      import('./pages/filter-leagues/filter-leagues.routes').then((m) => m.routes),
+  },
+  {
+    path: 'filter-clubs',
+    loadChildren: () => import('./pages/filter-teams/filter-teams.routes').then((m) => m.routes),
   },
   {
     path: '',
