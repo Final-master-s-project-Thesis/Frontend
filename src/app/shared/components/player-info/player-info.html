@@ -31,7 +31,15 @@
       </div>
       <div class="row-space-between">
         <label class="text-sm-regular text-gray" style="text-align: start">Valor estimado:</label>
-        <span class="player-club text-sm-medium text-dark" style="text-align: end">
+        <span
+          class="player-club text-sm-medium"
+          [ngClass]="{
+            'text-green': estimatedValue > value,
+            'text-red': estimatedValue < value,
+            'text-dark': estimatedValue === value
+          }"
+          style="text-align: end"
+        >
           {{ formatValueMoney(estimatedValue) }}
         </span>
       </div>

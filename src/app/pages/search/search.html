@@ -13,37 +13,20 @@
       class="card column"
       style="text-align: start; margin: 0; padding-top: 0; padding-left: 0; padding-right: 0"
     >
-      <div style="margin: 2rem 3rem 0 2rem" (click)="toggleFilters()">
+      <div
+        style="margin: 2rem 3rem 0 2rem; justify-content: space-between; width: 95%; display: flex"
+      >
         <label class="text-md-semibold text-dark">Filtros:</label>
+
+        <label class="switch">
+          <input type="checkbox" [checked]="showFilters" (change)="toggleFilters()" />
+          <span class="slider"></span>
+        </label>
       </div>
 
       <hr class="divider" />
 
       <div style="padding: 0rem 3rem" *ngIf="showFilters">
-        <div
-          class="row-start"
-          style="
-            margin: 0;
-            gap: 20px;
-            justify-content: space-between;
-            display: flex;
-            flex-wrap: wrap;
-          "
-        >
-          <div
-            class="column-start"
-            style="margin-top: 0; flex: 2; min-width: 200px; margin-right: 15px"
-          >
-            <label class="text-sm-medium text-gray">Buscar jugadores por nombre</label>
-            <input
-              type="text"
-              placeholder="Nombre"
-              class="input-field text-sm-regular text-dark"
-              style="width: 100%"
-            />
-          </div>
-        </div>
-
         <div class="row" style="flex-wrap: wrap; justify-content: center; margin: 0">
           <div class="row-without-margins content-row" style="gap: 20px; margin-top: -20px">
             <div class="column-start two-input">
@@ -200,14 +183,15 @@
               />
             </div>
           </div>
+        </div>
+      </div>
 
-          <div
-            class="row-without-margins"
-            style="justify-content: end; margin-top: 40px; gap: 10px; width: 100%"
-          >
-            <button class="button-secondary" (click)="limpiarFiltros()">Limpiar filtros</button>
-            <button class="button-primary" (click)="searchPlayers()">Buscar</button>
-          </div>
+      <hr class="divider" />
+
+      <div style="width: 100%; display: flex; justify-content: center; margin: 0">
+        <div class="row-without-margins" style="justify-content: end; gap: 10px; width: 95%">
+          <button class="button-secondary" (click)="limpiarFiltros()">Limpiar filtros</button>
+          <button class="button-primary" (click)="searchPlayers()">Buscar</button>
         </div>
       </div>
     </div>
@@ -219,7 +203,7 @@
       <app-player-info
         *ngFor="let player of players"
         [id]="player.player_id"
-        [name]="player.name"
+        [name]="formatName(player.name)"
         [countryCode]="player.country_code"
         [position]="player.position"
         [team]="getTeamByCode(player.club_id)"

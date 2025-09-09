@@ -48,3 +48,33 @@ export interface Filters {
   talent_min?: number;
   limit?: number;
 }
+
+export const uniquePositions: string[] = [
+  'CR(D)',
+  'CR(DI)',
+  'CR(I)',
+  'DF(C)',
+  'DF(D)',
+  'DF(DC)',
+  'DF(DI)',
+  'DF(DIC)',
+  'DF(I)',
+  'DF(IC)',
+  'DL(C)',
+  'MC',
+  'ME(C)',
+  'ME(D)',
+  'ME(DC)',
+  'ME(DI)',
+  'ME(DIC)',
+  'ME(I)',
+  'ME(IC)',
+  'MP(C)',
+  'MP(D)',
+  'MP(DC)',
+  'MP(DI)',
+  'MP(DIC)',
+  'MP(I)',
+  'MP(IC)',
+  'POR',
+];

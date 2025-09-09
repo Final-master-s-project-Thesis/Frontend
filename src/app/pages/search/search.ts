@@ -13,7 +13,7 @@ import { League } from '../../core/models/league/league';
 import { Club } from '../../core/models/club/club';
 import { Country } from '../../core/models/country/country';
 import { Player } from '../../core/models/player/player';
-import { Filters } from '../../utils/utils';
+import { Filters, formatName, uniquePositions } from '../../utils/utils';
 
 @Component({
   selector: 'app-search',
@@ -59,6 +59,7 @@ export class Search implements OnInit {
     this.filters.position = '';
     this.filters.country_code = '';
     this.filters.limit = 100;
+    this.positions = uniquePositions;
 
     this.loadData();
   }
@@ -169,5 +170,9 @@ export class Search implements OnInit {
 
   toggleFilters() {
     this.showFilters = !this.showFilters;
+  }
+
+  formatName(name: string): string {
+    return formatName(name);
   }
 }
