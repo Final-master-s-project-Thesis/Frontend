@@ -1,23 +1,23 @@
 <div class="header">
   <nav class="navbar">
-    <div class="logo">
+    <div class="logo" routerLink="/general">
       <img src="logo.png" alt="logo" width="30" />
       <span class="text-lg-bold">SRFF</span>
     </div>
 
-    <ul class="menu text-base-medium">
-      <li>
-        <a routerLink="/general" routerLinkActive="active">General</a>
-      </li>
-      <li>
-        <a routerLink="/search" routerLinkActive="active">Buscador</a>
-      </li>
-      <li>
-        <a routerLink="/compare" routerLinkActive="active">Comparar</a>
-      </li>
-      <li>
-        <a routerLink="/similar" routerLinkActive="active">Similares</a>
-      </li>
+    <!-- Botón hamburguesa -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Menú -->
+    <ul class="menu text-base-medium" [class.open]="isMenuOpen">
+      <li><a routerLink="/general" routerLinkActive="active">General</a></li>
+      <li><a routerLink="/search" routerLinkActive="active">Buscador</a></li>
+      <li><a routerLink="/compare" routerLinkActive="active">Comparar</a></li>
+      <li><a routerLink="/similar" routerLinkActive="active">Similares</a></li>
     </ul>
   </nav>
 </div>

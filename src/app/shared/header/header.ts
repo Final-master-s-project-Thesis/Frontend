@@ -8,4 +8,10 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./header.css'],
   standalone: true,
 })
-export class Header {}
+export class Header {
+  isMenuOpen = false; // 🔹 define la propiedad
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+}

@@ -12,26 +12,68 @@
   justify-content: space-between;
   padding: 0.5rem 1rem;
   background: #fff;
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* menú desktop */
+.menu {
+  align-items: center;
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.menu a.active {
+  color: var(--color-blue);
+}
+
+/* 🔽 RESPONSIVE 🔽 */
+.hamburger {
+  display: none; /* se activa solo en móvil */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-gray);
+  border-radius: 5px;
+}
+
+/* móvil */
+@media (max-width: 768px) {
+  .menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
   }
 
-  .menu {
-    align-items: center;
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
+  .menu.open {
+    transform: translateX(0); /* se despliega */
+  }
 
-    a {
-      text-decoration: none;
-      color: var(--color-gray);
-    }
-
-    a.active {
-      color: var(--color-blue);
-    }
+  .hamburger {
+    display: flex; /* aparece en móvil */
   }
 }
