@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerInfo } from '../../shared/components/player-info/player-info';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { PlayerService } from '../../core/services/players.service';
@@ -12,11 +13,12 @@ import { League } from '../../core/models/league/league';
 import { Club } from '../../core/models/club/club';
 import { Country } from '../../core/models/country/country';
 import { Player } from '../../core/models/player/player';
+import { Filters } from '../../utils/utils';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, PlayerInfo],
+  imports: [CommonModule, FormsModule, PlayerInfo],
   templateUrl: './search.html',
   styleUrls: ['./search.css'],
 })
@@ -26,6 +28,9 @@ export class Search implements OnInit {
   countries: Country[] = [];
   clubs: Club[] = [];
   leagues: League[] = [];
+  positions: string[] = [];
+
+  filters: Filters = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +44,7 @@ export class Search implements OnInit {
 
   ngOnInit() {
     this.loadData();
+    this.buscarJugadores();
     this.isLoading = false;
   }
 
@@ -71,5 +77,17 @@ export class Search implements OnInit {
 
   handlePlayerSelected(player_id: string) {
     this.router.navigate(['/player', player_id]);
+  }
+
+  buscarJugadores() {
+    this.isLoading = true;
+    //this.playerService.buscarJugadores(this.filtros).subscribe((players: Player[]) => {
+    //  this.players = players;
+    //  this.isLoading = false;
+    //}, _ => this.isLoading = false);
+  }
+
+  limpiarFiltros() {
+    this.filters = {};
   }
 }

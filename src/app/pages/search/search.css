@@ -14,12 +14,45 @@
   margin-top: 16px;
 }
 
+.column-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
 .row {
   display: flex;
   flex-direction: row;
   height: max-content;
   align-items: space-between;
   justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.row-without-margins {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  align-items: space-between;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.row-start {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  align-items: flex-start;
+  justify-content: start;
   text-align: center;
   gap: 1rem;
   margin-bottom: 16px;
@@ -53,5 +86,71 @@
   .text-base-regular {
     text-align: center;
     font-size: 1.75rem;
+  }
+}
+
+.input-field {
+  height: 45px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #ffffff;
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb; /* gris muy claro */
+}
+
+select.input-field {
+  height: 48px;
+}
+
+.button-primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 10rem;
+}
+
+.button-secondary {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 10rem;
+}
+
+.content-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1325px) {
+  .content-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content-row .column-start {
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+  }
+  .content-row > .column-start > div,
+  .content-row > .column-start > input,
+  .content-row > .column-start > select {
+    width: 100% !important;
+    min-width: unset;
+    max-width: 100%;
+  }
+  .content-row > .column-start {
+    margin-right: 0 !important;
   }
 }

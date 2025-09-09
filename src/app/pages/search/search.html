@@ -9,25 +9,181 @@
   </div>
 
   <div class="column" style="margin-top: 30px">
-    <label class="text-base-regular text-gray">Resultados:</label>
+    <div class="card column" style="text-align: start; margin: 0">
+      <label class="text-md-semibold text-dark">Filtros:</label>
 
-    <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
-      <app-player-info
-        *ngFor="let player of players"
-        [id]="player.player_id"
-        [name]="player.name"
-        [countryCode]="player.country_code"
-        [position]="player.position"
-        [team]="'asdsad'"
-        [age]="player.age"
-        [league]="'0'"
-        [value]="player.market_value"
-        [estimatedValue]="player.estimated_value"
-        [height]="player.height"
-        [weight]="player.weight"
-        [talent]="player.talent"
-        (cardSelected)="handlePlayerSelected($event)"
-      ></app-player-info>
+      <div
+        class="row-start"
+        style="margin: 0; gap: 20px; justify-content: space-between; display: flex; flex-wrap: wrap"
+      >
+        <div
+          class="column-start"
+          style="margin-top: 0; flex: 2; min-width: 200px; margin-right: 15px"
+        >
+          <label class="text-sm-medium text-gray">Buscar jugadores por nombre</label>
+          <input type="text" placeholder="Nombre" class="input-field" style="width: 100%" />
+        </div>
+        <div class="column-start" style="margin-top: 0; flex: 1; min-width: 150px">
+          <label class="text-sm-medium text-gray">Liga</label>
+          <select class="input-field" style="width: 100%">
+            <option value="">Todos las ligas</option>
+            <option *ngFor="let league of leagues" [value]="league.league_id">
+              {{ league.competition_name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="flex-wrap: wrap; justify-content: center; margin: 0">
+        <div class="row-without-margins content-row" style="gap: 20px; margin-top: -20px">
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Edad</label>
+            <div style="display: flex; gap: 5px">
+              <input
+                type="number"
+                placeholder="Min"
+                class="input-field"
+                [(ngModel)]="filters.age_min"
+                style="margin-right: 5px; width: 100%"
+              />
+              <input
+                type="number"
+                placeholder="Max"
+                class="input-field"
+                [(ngModel)]="filters.age_max"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Altura</label>
+            <div style="display: flex; gap: 5px">
+              <input
+                type="number"
+                placeholder="Min"
+                class="input-field"
+                [(ngModel)]="filters.height_min"
+                style="margin-right: 5px; width: 100%"
+              />
+              <input
+                type="number"
+                placeholder="Max"
+                class="input-field"
+                [(ngModel)]="filters.height_max"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Peso</label>
+            <div style="display: flex; gap: 5px">
+              <input
+                type="number"
+                placeholder="Min"
+                class="input-field"
+                [(ngModel)]="filters.weight_min"
+                style="margin-right: 5px; width: 100%"
+              />
+              <input
+                type="number"
+                placeholder="Max"
+                class="input-field"
+                [(ngModel)]="filters.weight_max"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row-without-margins content-row" style="margin-top: -20px">
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Posición</label>
+            <select class="input-field" [(ngModel)]="filters.position">
+              <option value="">Todas las posiciones</option>
+              <option *ngFor="let pos of positions" [value]="pos">{{ pos }}</option>
+            </select>
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Club</label>
+            <select class="input-field" [(ngModel)]="filters.club_id">
+              <option value="">Todos los clubes</option>
+              <option *ngFor="let club of clubs" [value]="club.club_id">
+                {{ club.club_name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Talento</label>
+            <input
+              type="number"
+              placeholder="15"
+              class="input-field"
+              [(ngModel)]="filters.talent_min"
+            />
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Valor max (M €)</label>
+            <input
+              type="number"
+              placeholder="200"
+              class="input-field"
+              [(ngModel)]="filters.market_value_max"
+            />
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Valor estim. max (M €)</label>
+            <input
+              type="number"
+              placeholder="150"
+              class="input-field"
+              [(ngModel)]="filters.estimated_value_max"
+            />
+          </div>
+
+          <div class="column-start">
+            <label class="text-sm-medium text-gray">Salario mensual max (€)</label>
+            <input
+              type="number"
+              placeholder="1000000"
+              class="input-field"
+              [(ngModel)]="filters.salary_month_max"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row-without-margins" style="justify-content: end; margin-top: 40px; gap: 10px">
+        <button class="button-secondary" (click)="limpiarFiltros()">Limpiar filtros</button>
+        <button class="button-primary">Buscar</button>
+      </div>
+    </div>
+
+    <div class="column" style="margin-top: 30px">
+      <label class="text-base-regular text-gray">Resultados:</label>
+      <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+        <app-player-info
+          *ngFor="let player of players"
+          [id]="player.player_id"
+          [name]="player.name"
+          [countryCode]="player.country_code"
+          [position]="player.position"
+          [team]="'asdsad'"
+          [age]="player.age"
+          [league]="'0'"
+          [value]="player.market_value"
+          [estimatedValue]="player.estimated_value"
+          [height]="player.height"
+          [weight]="player.weight"
+          [talent]="player.talent"
+          (cardSelected)="handlePlayerSelected($event)"
+        ></app-player-info>
+      </div>
     </div>
   </div>
 </div>

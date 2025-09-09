@@ -10,3 +10,21 @@ export function getClubName(club_id: string, clubs: Club[]): string {
   const club = clubs.find((c) => c.club_id == club_id);
   return club ? club.club_name : 'Desconocido';
 }
+
+export interface Filters {
+  reduced_data?: boolean;
+  all_data?: boolean;
+  country_code?: string;
+  club_id?: string;
+  age_min?: number;
+  age_max?: number;
+  height_min?: number;
+  height_max?: number;
+  weight_min?: number;
+  weight_max?: number;
+  position?: string;
+  market_value_max?: number;
+  estimated_value_max?: number;
+  salary_month_max?: number;
+  talent_min?: number;
+}
