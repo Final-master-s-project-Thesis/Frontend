@@ -18,7 +18,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/similar/similar').then((m) => m.Similar),
   },
   {
-    path: 'player',
+    path: 'player/:id',
     loadComponent: () => import('./pages/player/player').then((m) => m.Player),
   },
   {

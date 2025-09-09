@@ -65,6 +65,7 @@ export class General {
 
   handlePlayerSelected(id: string) {
     console.log('ID del jugador:', id);
+    this.router.navigate(['/player', id]);
   }
 
   handleLeagueSelected(id: string) {
