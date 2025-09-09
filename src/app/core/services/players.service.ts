@@ -23,8 +23,9 @@ export class PlayerService {
     market_value_max?: number,
     estimated_value_max?: number,
     salary_month_max?: number,
-    talent_min?: number
-  ){
+    talent_min?: number,
+    limit?: number
+  ) {
     const filter: Params = {
       reduced_data,
       all_data,
@@ -40,8 +41,12 @@ export class PlayerService {
       market_value_max,
       estimated_value_max,
       salary_month_max,
-      talent_min
+      talent_min,
+      limit,
     };
+
+    // Elimina los filtros cuyo valor sea undefined
+    Object.keys(filter).forEach((key) => filter[key] === undefined && delete filter[key]);
 
     return this.repo.getPlayers(filter);
   }
@@ -63,7 +68,7 @@ export class PlayerService {
   }
 
   getPlayerSimilar(
-    id: string, 
+    id: string,
     country_code?: string,
     club_id?: string,
     age_min?: number,
@@ -91,10 +96,12 @@ export class PlayerService {
       market_value_max,
       estimated_value_max,
       salary_month_max,
-      talent_min
+      talent_min,
     };
+
+    // Elimina los filtros cuyo valor sea undefined
+    Object.keys(filter).forEach((key) => filter[key] === undefined && delete filter[key]);
 
     return this.repo.getPlayerSimilar(id, filter);
   }
-
 }

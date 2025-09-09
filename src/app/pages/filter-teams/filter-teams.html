@@ -13,16 +13,6 @@
 
     <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
       <card-team
-        [name]="'Todos los equipos de la liga'"
-        [subname]="league_name"
-        [data]="clubs.length + ' equipos disponibles'"
-        [color]="'#4b5563'"
-        [id]="'ALL_TEAMS'"
-        (cardSelected)="handleClubSelected($event)"
-        style="cursor: pointer"
-      ></card-team>
-
-      <card-team
         *ngFor="let club of clubs; let i = index"
         [name]="club.club_name"
         [subname]="getLeagueName(club.league_id)"

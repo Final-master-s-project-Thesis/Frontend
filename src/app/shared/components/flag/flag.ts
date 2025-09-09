@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { iso3to2 } from '../../../utils/countries';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,13 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class Flag {
   @Input() countryCode!: string;
-  countryCode2letter!: string;
 
-  constructor() {
-    this.countryCode2letter = iso3to2[this.countryCode] || 'es';
-  }
-
-  getFlagClass(): string {
-    return `fi fi-${this.countryCode2letter.toLowerCase()}`;
-  }
+  constructor() {}
 }

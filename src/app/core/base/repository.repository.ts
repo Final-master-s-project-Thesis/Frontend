@@ -1,6 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Injector } from '@angular/core';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 export abstract class Repository {
     private paths = Object.freeze({
@@ -17,9 +18,17 @@ export abstract class Repository {
     protected doRequest<T>(
         method: keyof HttpClient,
         url: string,
-        body?: unknown,
-        params?: HttpParams
+        options?: { params?: any; body?: any }
     ): Observable<T> {
-        return this.http.request<T>(method, `${this.basePath}${url}`, { body, params });
+        // Si es GET o HEAD, no enviar body
+        const opts: any = { ...options };
+        if (method === 'get' || method === 'head') {
+            delete opts.body;
+        }
+        return this.http.request<T>(method, `${this.basePath}${url}`, { ...opts, observe: 'response' })
+            .pipe(
+                filter((event: any) => event instanceof HttpResponse),
+                map((event: HttpResponse<T>) => event.body as T)
+            );
     }
 }

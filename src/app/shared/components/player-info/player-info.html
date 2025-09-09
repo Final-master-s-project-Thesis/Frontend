@@ -26,19 +26,19 @@
       <div class="row-space-between">
         <label class="text-sm-regular text-gray" style="text-align: start">Valor:</label>
         <span class="player-club text-sm-medium text-dark" style="text-align: end">
-          {{ value }}
+          {{ formatValueMoney(value) }}
         </span>
       </div>
       <div class="row-space-between">
         <label class="text-sm-regular text-gray" style="text-align: start">Valor estimado:</label>
         <span class="player-club text-sm-medium text-dark" style="text-align: end">
-          {{ estimatedValue }}
+          {{ formatValueMoney(estimatedValue) }}
         </span>
       </div>
       <div class="row-space-between">
         <label class="text-sm-regular text-gray" style="text-align: start">Altura/Peso:</label>
         <span class="player-club text-sm-medium text-dark" style="text-align: end">
-          {{ height }}/{{ weight }}
+          {{ height }} cm / {{ weight }} kg
         </span>
       </div>
     </div>

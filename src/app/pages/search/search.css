@@ -162,3 +162,9 @@ select.input-field {
     width: 100%;
   }
 }
+
+.divider {
+  border: none;
+  border-top: 2px solid #e5e7eb; /* gris clarito */
+  margin: 8px 0;
+}

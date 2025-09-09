@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Flag } from '../flag/flag';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { formatValueMoney } from '../../../utils/utils';
+import { Flag } from '../flag/flag';
 
 @Component({
   selector: 'app-player-info',
   standalone: true,
-  imports: [Flag, CommonModule],
+  imports: [CommonModule, Flag],
   templateUrl: './player-info.html',
   styleUrls: ['./player-info.css'],
 })
@@ -27,5 +28,9 @@ export class PlayerInfo {
 
   onClick() {
     this.cardSelected.emit(this.id);
+  }
+
+  formatValueMoney(value: number): string {
+    return formatValueMoney(value);
   }
 }

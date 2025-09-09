@@ -11,6 +11,25 @@ export function getClubName(club_id: string, clubs: Club[]): string {
   return club ? club.club_name : 'Desconocido';
 }
 
+export function formatName(name: string): string {
+  const splits = name.split(' ');
+  let final_name = '';
+  for (const sp of splits) {
+    final_name += sp.charAt(0).toUpperCase() + sp.slice(1) + ' ';
+  }
+  return final_name.trim();
+}
+
+export function formatValueMoney(value: number): string {
+  if (value >= 1_000_000) {
+    return `${(value / 1_000_000).toFixed(1)}M €`;
+  } else if (value >= 1_000) {
+    return `${(value / 1_000).toFixed(1)}K €`;
+  } else {
+    return `${value} €`;
+  }
+}
+
 export interface Filters {
   reduced_data?: boolean;
   all_data?: boolean;
@@ -27,4 +46,5 @@ export interface Filters {
   estimated_value_max?: number;
   salary_month_max?: number;
   talent_min?: number;
+  limit?: number;
 }
