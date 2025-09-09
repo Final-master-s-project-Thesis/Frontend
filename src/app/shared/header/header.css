@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #fff;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+
+    a {
+      text-decoration: none;
+      color: var(--color-gray);
+    }
+
+    a.active {
+      color: var(--color-blue);
+    }
+  }
+}

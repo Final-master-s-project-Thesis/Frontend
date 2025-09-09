@@ -1,0 +1,43 @@
+<div class="header">
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="logo" width="30" />
+      <span class="text-lg-bold">SRFF</span>
+    </div>
+
+    <ul class="menu text-sm-medium">
+      <li>
+        <a
+          routerLink="/general"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >General</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/search"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Buscador</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/compare"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Comparar</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/similar"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Similares</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
