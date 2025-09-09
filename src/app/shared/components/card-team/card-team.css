@@ -10,6 +10,12 @@
   max-width: 340px;
 }
 
+@media screen and (max-width: 768px) {
+  .card-caracteristic {
+    width: 300px;
+  }
+}
+
 .circulo {
   width: 32px;
   height: 32px;

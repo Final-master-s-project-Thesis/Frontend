@@ -1,6 +1,8 @@
 <div *ngIf="!isLoading">
   <div class="column">
-    <h1 class="text-xxxl-bold text-dark center">Sistema de recomendación de fichajes de fútbol</h1>
+    <h1 class="text-xxxl-bold text-dark center title" style="text-align: center">
+      Sistema de recomendación de fichajes de fútbol
+    </h1>
     <div class="center">
       <h2 class="text-lg-regular text-gray subtitle">
         Descubre las estadísticas más completas de jugadores de fútbol basadas en Football Manager y
@@ -25,8 +27,8 @@
   </div>
 
   <div class="column">
-    <div class="row" style="justify-content: space-between">
-      <p class="nomargin text-xl-bold">Ligas principales</p>
+    <div class="row section" style="justify-content: space-between">
+      <p class="nomargin text-xl-bold" style="text-align: center">Ligas principales</p>
       <button
         class="see-more nopadding text-base-medium text-blue"
         (click)="navigateToFilterLeague()"
@@ -37,7 +39,7 @@
     <div class="row">
       <card-team
         name="Premier League"
-        subname="Nacimiento: 1888-1889"
+        subname="2024-2025"
         data="Masculino"
         color="#0284c7"
         id="9"
@@ -46,18 +48,18 @@
       </card-team>
       <card-team
         name="La Liga"
-        subname="Nacimiento: 1988-1989"
+        subname="2024-2025"
         data="Masculino"
-        color="#0284c7"
+        color="#16a34a"
         id="12"
         (cardSelected)="handleLeagueSelected($event)"
       >
       </card-team>
       <card-team
         name="Bundesliga"
-        subname="Nacimiento: 1988-1989"
+        subname="2024-2025"
         data="Masculino"
-        color="#0284c7"
+        color="#ea580c"
         id="20"
         (cardSelected)="handleLeagueSelected($event)"
       >
@@ -67,7 +69,7 @@
 
   <div class="column">
     <div class="row" style="justify-content: space-between">
-      <p class="nomargin text-xl-bold">Clubes destacados</p>
+      <p class="nomargin text-xl-bold" style="text-align: center">Clubes destacados</p>
       <button
         class="see-more nopadding text-base-medium text-blue"
         (click)="navigateToFilterClub()"
@@ -80,7 +82,7 @@
         name="Barcelona"
         subname="La Liga"
         data="38 partidos"
-        color="#16a34a"
+        color="#0284c7"
         id="206d90db"
         (cardSelected)="handleClubSelected($event)"
       >
@@ -98,7 +100,7 @@
         name="R. Madrid"
         subname="La Liga"
         data="38 partidos"
-        color="#16a34a"
+        color="#ea580c"
         id="53a2f082"
         (cardSelected)="handleClubSelected($event)"
       >
@@ -108,7 +110,7 @@
 
   <div class="column">
     <div class="row" style="justify-content: space-between">
-      <p class="nomargin text-xl-bold">Jugadores destacados</p>
+      <p class="nomargin text-xl-bold" style="text-align: center">Jugadores destacados</p>
       <button class="see-more nopadding text-base-medium text-blue" (click)="navigateToSearch()">
         Ver más
       </button>
@@ -118,7 +120,7 @@
         name="Marcos Llorente"
         subname="ESP"
         data="28 años - 78.000.000 €"
-        color="#ea580c"
+        color="#0284c7"
         id="02c15616"
         (cardSelected)="handlePlayerSelected($event)"
       >
@@ -127,7 +129,7 @@
         name="Gavi"
         subname="ESP"
         data="18 años - 140.500.000 €"
-        color="#ea580c"
+        color="#16a34a"
         id="19cae58d"
         (cardSelected)="handlePlayerSelected($event)"
       >

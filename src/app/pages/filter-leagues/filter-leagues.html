@@ -1,1 +1,28 @@
-<p>filter-leagues works!</p>
+<div *ngIf="!isLoading">
+  <div class="column">
+    <h1 class="text-xxxl-bold text-dark center">Ligas de fútbol</h1>
+    <div class="center">
+      <h2 class="text-lg-regular text-gray subtitle">
+        Selecciona una liga para iniciar la busqueda avanzada de jugadores
+      </h2>
+    </div>
+  </div>
+
+  <div class="column" style="margin-top: 60px">
+    <label class="text-base-regular text-gray">Mostrando ligas de fútbol:</label>
+
+    <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+      <card-team
+        *ngFor="let league of leagues; let i = index"
+        [name]="league.competition_name"
+        [subname]="'2024 - 2025'"
+        [data]="league.gender == 'M' ? 'Masculino' : 'Femenino'"
+        [color]="colors[i % colors.length]"
+        [id]="league.league_id.toString()"
+        (cardSelected)="handleLeagueSelected($event)"
+        style="cursor: pointer"
+      ></card-team>
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading-container">Cargando...</div>
