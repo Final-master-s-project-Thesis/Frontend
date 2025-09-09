@@ -1,7 +1,7 @@
 export interface Club {
-    league_id: String;
-    club_id: String;
-    club_name: String;
-    season: String;
-    total_matches: String;
+  league_id: number;
+  club_id: string;
+  club_name: string;
+  season: string;
+  total_matches: string;
 }

@@ -1,1 +1,38 @@
-<p>filter-teams works!</p>
+<div *ngIf="!isLoading">
+  <div class="column">
+    <h1 class="text-xxxl-bold text-dark center">Equipos de fútbol</h1>
+    <div class="center">
+      <h2 class="text-lg-regular text-gray subtitle">
+        Selecciona un equipo para iniciar la busqueda avanzada de jugadores
+      </h2>
+    </div>
+  </div>
+
+  <div class="column" style="margin-top: 60px">
+    <label class="text-base-regular text-gray">Mostrando equipos de fútbol:</label>
+
+    <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+      <card-team
+        [name]="'Todos los equipos de la liga'"
+        [subname]="league_name"
+        [data]="clubs.length + ' equipos disponibles'"
+        [color]="'#4b5563'"
+        [id]="'ALL_TEAMS'"
+        (cardSelected)="handleClubSelected($event)"
+        style="cursor: pointer"
+      ></card-team>
+
+      <card-team
+        *ngFor="let club of clubs; let i = index"
+        [name]="club.club_name"
+        [subname]="getLeagueName(club.league_id)"
+        [data]="club.total_matches + ' partidos jugados'"
+        [color]="colors[i % colors.length]"
+        [id]="club.club_id.toString()"
+        (cardSelected)="handleClubSelected($event)"
+        style="cursor: pointer"
+      ></card-team>
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading-container">Cargando...</div>

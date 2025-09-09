@@ -87,11 +87,11 @@ export class General implements OnInit {
 
   handleLeagueSelected(id: string) {
     console.log('ID de la liga:', id);
-    this.router.navigate(['/filter-clubs'], { queryParams: { leagueId: id } });
+    this.router.navigate(['/filter-clubs'], { queryParams: { league_id: id } });
   }
 
   handleClubSelected(id: string) {
     console.log('ID del club:', id);
-    this.router.navigate(['/search'], { queryParams: { clubId: id } });
+    this.router.navigate(['/search'], { queryParams: { club_id: id } });
   }
 }
