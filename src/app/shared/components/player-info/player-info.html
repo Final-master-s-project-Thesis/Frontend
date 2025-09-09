@@ -1,1 +1,52 @@
-<p>player-info works!</p>
+<div class="row-space-between" style="cursor: pointer">
+  <div class="player-info card">
+    <div class="row">
+      <app-flag [countryCode]="countryCode" *ngIf="countryCode"></app-flag>
+      <div class="circle" *ngIf="!countryCode"></div>
+
+      <div class="col" style="text-align: start; margin-left: 12px; align-self: center">
+        <span class="text-base-semibold text-dark">{{ name }}</span>
+        <span class="text-sm-regular text-gray" style="margin-top: -10px">
+          {{ position }} - {{ age }}
+        </span>
+      </div>
+    </div>
+
+    <div class="col content">
+      <div class="row-space-between">
+        <label class="text-sm-regular text-gray" style="text-align: start">Club:</label>
+        <span class="player-club text-sm-medium text-dark">{{ team }}</span>
+      </div>
+      <div class="row-space-between">
+        <label class="text-sm-regular text-gray" style="text-align: start">Liga:</label>
+        <span class="player-club text-sm-medium text-dark" style="text-align: end">
+          {{ league }}
+        </span>
+      </div>
+      <div class="row-space-between">
+        <label class="text-sm-regular text-gray" style="text-align: start">Valor:</label>
+        <span class="player-club text-sm-medium text-dark" style="text-align: end">
+          {{ value }}
+        </span>
+      </div>
+      <div class="row-space-between">
+        <label class="text-sm-regular text-gray" style="text-align: start">Valor estimado:</label>
+        <span class="player-club text-sm-medium text-dark" style="text-align: end">
+          {{ estimatedValue }}
+        </span>
+      </div>
+      <div class="row-space-between">
+        <label class="text-sm-regular text-gray" style="text-align: start">Altura/Peso:</label>
+        <span class="player-club text-sm-medium text-dark" style="text-align: end">
+          {{ height }}/{{ weight }}
+        </span>
+      </div>
+    </div>
+
+    <hr class="border-light-gray" />
+
+    <div>
+      <span class="text-sm-medium text-blue">Talento: {{ talent }}</span>
+    </div>
+  </div>
+</div>

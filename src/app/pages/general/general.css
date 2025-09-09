@@ -33,6 +33,11 @@
   min-width: 250px; /* evita que se haga muy pequeño */
 }
 
+.card-less {
+  border: 0;
+  box-shadow: none;
+}
+
 .nomargin {
   margin: 0;
 }
@@ -63,6 +68,10 @@
     max-width: 100%;
   }
 
+  .card-less {
+    padding: 0;
+  }
+
   .title {
     max-width: 90%;
     font-size: 2rem;
@@ -85,5 +94,9 @@
 @media (min-width: 769px) and (max-width: 1200px) {
   .card {
     flex: 1 1 calc(50% - 1rem); /* dos por fila en tablets */
+  }
+
+  .card-less {
+    padding: 0px;
   }
 }

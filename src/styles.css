@@ -1,3 +1,5 @@
+/*@import 'flag-icons/css/flag-icons.min.css';*/
+
 /* ==============================
    GLOBAL STYLES
    ============================== */
@@ -147,6 +149,14 @@
   line-height: 1.1;
 }
 
+/* ========== XXXXL ahora es 64px (nuevo escalado) ========== */
+.text-xxxxl-bold {
+  font-family: var(--font-family-base);
+  font-size: 4rem; /* 64px */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+}
+
 /* ==============================
    COLOR SYSTEM
    ============================== */
@@ -169,6 +179,7 @@
   --color-cyan: #06b6d4;
   --color-emerald: #10b981;
   --color-gray: #4b5563;
+  --color-light-gray: #e5e7eb;
   --color-dark: #111827;
   --color-light: #999999;
 }
@@ -269,6 +280,10 @@
 }
 .circle-emerald {
   background-color: var(--color-emerald);
+}
+
+.border-light-gray {
+  border-color: var(--color-light-gray);
 }
 
 /* ==============================

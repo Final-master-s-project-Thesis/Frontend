@@ -1,1 +1,34 @@
-<p>search works!</p>
+<div *ngIf="!isLoading">
+  <div class="column">
+    <h3 class="text-xxl-bold text-dark center" style="margin: 24px 0">Buscador de jugadores</h3>
+    <div class="center">
+      <h4 class="text-base-regular text-gray subtitle">
+        Encuentra el jugador perfecto usando filtros avanzados
+      </h4>
+    </div>
+  </div>
+
+  <div class="column" style="margin-top: 30px">
+    <label class="text-base-regular text-gray">Resultados:</label>
+
+    <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+      <app-player-info
+        *ngFor="let player of players"
+        [id]="player.player_id"
+        [name]="player.name"
+        [countryCode]="player.country_code"
+        [position]="player.position"
+        [team]="'asdsad'"
+        [age]="player.age"
+        [league]="'0'"
+        [value]="player.market_value"
+        [estimatedValue]="player.estimated_value"
+        [height]="player.height"
+        [weight]="player.weight"
+        [talent]="player.talent"
+        (cardSelected)="handlePlayerSelected($event)"
+      ></app-player-info>
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading-container">Cargando...</div>
