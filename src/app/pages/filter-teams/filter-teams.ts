@@ -8,6 +8,7 @@ import { LeaguesService } from '../../core/services/leagues.service';
 import { CardTeam } from '../../shared/components/card-team/card-team';
 import { CommonModule } from '@angular/common';
 import { get } from 'http';
+import { getLeagueName } from '../../utils/utils';
 
 @Component({
   selector: 'app-filter-teams',
@@ -52,7 +53,7 @@ export class FilterTeams {
     this.route.queryParams.subscribe((params) => {
       if (params['league_id']) {
         this.leagues_id = parseInt(params['league_id']);
-        this.league_name = this.getLeagueName(this.leagues_id);
+        this.league_name = getLeagueName(this.leagues_id, this.leagues);
         this.clubs = this.clubs.filter((club) => club.league_id == this.leagues_id);
       }
     });
@@ -65,7 +66,6 @@ export class FilterTeams {
   }
 
   getLeagueName(league_id: number): string {
-    const league = this.leagues.find((l) => l.league_id == league_id);
-    return league ? league.competition_name : 'Desconocida';
+    return getLeagueName(league_id, this.leagues);
   }
 }
