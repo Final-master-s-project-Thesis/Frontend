@@ -133,6 +133,10 @@ select.input-field {
   margin-top: 20px;
 }
 
+.two-input {
+  width: 30%;
+}
+
 @media screen and (max-width: 1325px) {
   .content-row {
     flex-direction: column;
@@ -152,5 +156,9 @@ select.input-field {
   }
   .content-row > .column-start {
     margin-right: 0 !important;
+  }
+
+  .two-input {
+    width: 100%;
   }
 }
