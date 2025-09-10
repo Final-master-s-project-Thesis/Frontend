@@ -1,7 +1,8 @@
 import { Injectable, Injector } from '@angular/core';
 import { Repository } from '../../base/repository.repository';
-import { Player } from '../../models/player/player';
+import { Player, PlayerAllData, PlayerPartialData } from '../../models/player/player';
 import { Params } from '@angular/router';
+import { FM24Data } from '../../models/fm24/fm24-data';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,9 @@ export class PlayerRepository extends Repository {
   }
 
   getPlayers(filter?: Params) {
-    return this.doRequest<Player[]>('get', `/players/`, { params: filter });
+    return this.doRequest<Player[] | PlayerPartialData[] | PlayerAllData[]>('get', `/players/`, {
+      params: filter,
+    });
   }
 
   getPlayerById(id: string) {
@@ -20,18 +23,18 @@ export class PlayerRepository extends Repository {
   }
 
   getPlayerAllData(id: string) {
-    return this.doRequest<Player>('get', `/players/${id}/full_data/`);
+    return this.doRequest<PlayerAllData>('get', `/players/${id}/full_data/`);
   }
 
   getPlayerFMData(id: string) {
-    return this.doRequest<Player>('get', `/players/${id}/fm24_data/`);
+    return this.doRequest<FM24Data>('get', `/players/${id}/fm24_data/`);
   }
 
   getPlayerPerformance(id: string) {
-    return this.doRequest<any>('get', `/players/${id}/performance/`);
+    return this.doRequest<Performance>('get', `/players/${id}/performance/`);
   }
 
   getPlayerSimilar(id: string, filter?: Params) {
-    return this.doRequest<Player[]>('get', `/players/${id}/similar/`, { params: filter });
+    return this.doRequest<Player[]>('get', `/players/${id}/similar`, { params: filter });
   }
 }

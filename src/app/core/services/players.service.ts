@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PlayerRepository } from '../respository/players/players.repository';
 import { Params } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Player, PlayerPartialData, PlayerAllData } from '../models/player/player';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +27,7 @@ export class PlayerService {
     salary_month_max?: number,
     talent_min?: number,
     limit?: number
-  ) {
+  ): Observable<any> {
     const filter: Params = {
       reduced_data,
       all_data,

@@ -1,34 +1,47 @@
 import { Injectable } from '@angular/core';
+import { Country } from '../models/country/country';
+import { PlayerPartialData } from '../models/player/player';
+import { Club } from '../models/club/club';
+import { League } from '../models/league/league';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoadedDataService {
-  private countries: any[] = [];
-  private leagues: any[] = [];
-  private clubs: any[] = [];
+  private countries: Country[] = [];
+  private leagues: League[] = [];
+  private clubs: Club[] = [];
+  private playersPartial: PlayerPartialData[] = [];
 
-  setCountries(countries: any[]): void {
+  setCountries(countries: Country[]): void {
     this.countries = countries;
   }
 
-  getCountries(): any[] {
+  getCountries(): Country[] {
     return this.countries;
   }
 
-  setLeagues(leagues: any[]): void {
+  setLeagues(leagues: League[]): void {
     this.leagues = leagues;
   }
 
-  getLeagues(): any[] {
+  getLeagues(): League[] {
     return this.leagues;
   }
 
-  setClubs(clubs: any[]): void {
+  setClubs(clubs: Club[]): void {
     this.clubs = clubs;
   }
 
-  getClubs(): any[] {
+  getClubs(): Club[] {
     return this.clubs;
+  }
+
+  setPlayersPartial(players: PlayerPartialData[]): void {
+    this.playersPartial = players;
+  }
+
+  getPlayersPartial(): PlayerPartialData[] {
+    return this.playersPartial;
   }
 }

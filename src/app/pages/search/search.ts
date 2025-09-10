@@ -115,6 +115,13 @@ export class Search implements OnInit {
     const country_code = this.filters.country_code != '' ? this.filters.country_code : undefined;
     const club_id = this.filters.club_id != '' ? this.filters.club_id : undefined;
 
+    const market_value_max = this.filters.market_value_max
+      ? this.filters.market_value_max * 1000000
+      : undefined;
+    const estimated_value_max = this.filters.estimated_value_max
+      ? this.filters.estimated_value_max * 1000000
+      : undefined;
+
     this.playerservice
       .getPlayers(
         false,
@@ -128,8 +135,8 @@ export class Search implements OnInit {
         this.filters.weight_min,
         this.filters.weight_max,
         position,
-        this.filters.market_value_max,
-        this.filters.estimated_value_max,
+        market_value_max,
+        estimated_value_max,
         this.filters.salary_month_max,
         this.filters.talent_min
       )
