@@ -1,13 +1,15 @@
-<div *ngIf="!isLoading">
-  <div class="card column">
+<div
+  *ngIf="!isLoading"
+  class="text-sm-regular text-dark"
+  style="display: flex; justify-content: center"
+>
+  <div class="card column" style="width: 70%">
     <div
       style="margin: 2rem 3rem 0 2rem; justify-content: space-between; width: 95%; display: flex"
     >
-      <label class="text-xs-medium text-dark" style="width: 140px; text-align: start"
-        >ATRIBUTOS</label
-      >
+      <label class="text-xs-medium text-dark" style="text-align: start">ATRIBUTOS</label>
 
-      <label class="text-xs-medium text-dark" style="width: 140px" *ngIf="player?.player?.name">{{
+      <label class="text-sm-medium text-dark" *ngIf="player?.player?.name">{{
         formatName(player?.player?.name)
       }}</label>
     </div>
@@ -39,48 +41,48 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">LIGA</label>
-          <label style="width: 140px">{{ getLeagueName(player?.player?.club_id) }}</label>
+          <label style="text-align: start">LIGA</label>
+          <label>{{ getLeagueName(player?.player?.club_id) }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">CLUB</label>
-          <label style="width: 140px">{{ getClubName(player?.player?.club_id) }}</label>
+          <label style="text-align: start">CLUB</label>
+          <label>{{ getClubName(player?.player?.club_id) }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">NACIONALIDAD</label>
-          <label style="width: 140px">{{ player?.player?.country_code || 'NA' }}</label>
+          <label style="text-align: start">NACIONALIDAD</label>
+          <label>{{ player?.player?.country_code || 'NA' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">EDAD</label>
-          <label style="width: 140px">{{ player?.player?.age || 'NA' }}</label>
+          <label style="text-align: start">EDAD</label>
+          <label>{{ player?.player?.age || 'NA' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">POSICIÓN</label>
-          <label style="width: 140px">{{ player?.player?.position || 'NA' }}</label>
+          <label style="text-align: start">POSICIÓN</label>
+          <label>{{ player?.player?.position || 'NA' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">ALTURA</label>
-          <label style="width: 140px">{{ player?.player?.height || 'NA' }} cm</label>
+          <label style="text-align: start">ALTURA</label>
+          <label>{{ player?.player?.height || 'NA' }} cm</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">PESO</label>
-          <label style="width: 140px">{{ player?.player?.weight || 'NA' }} kg</label>
+          <label style="text-align: start">PESO</label>
+          <label>{{ player?.player?.weight || 'NA' }} kg</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">VALOR MERCADO</label>
-          <label style="width: 140px">{{ playerFormateValue }}</label>
+          <label style="text-align: start">VALOR MERCADO</label>
+          <label>{{ playerFormateValue }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">VALOR ESTIMADO</label>
-          <label style="width: 140px">{{ playerFormateEstimated }}</label>
+          <label style="text-align: start">VALOR ESTIMADO</label>
+          <label>{{ playerFormateEstimated }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">SALARIO MENSUAL</label>
-          <label style="width: 140px">{{ playerFormateSalary }}</label>
+          <label style="text-align: start">SALARIO MENSUAL</label>
+          <label>{{ playerFormateSalary }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">TALENTO</label>
-          <label style="width: 140px">{{ player?.player?.talent || 'NA' }}</label>
+          <label style="text-align: start">TALENTO</label>
+          <label>{{ player?.player?.talent || 'NA' }}</label>
         </div>
       </div>
     </div>
@@ -112,64 +114,44 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Salidas</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.rushing_out || '0'
-          }}</label>
+          <label style="text-align: start">Salidas</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.rushing_out || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Dominio del área</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.command_of_area || '0'
-          }}</label>
+          <label style="text-align: start">Dominio del área</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.command_of_area || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Puños</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.punching || '0'
-          }}</label>
+          <label style="text-align: start">Puños</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.punching || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Excenticidad</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.eccentricity || '0'
-          }}</label>
+          <label style="text-align: start">Excenticidad</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.eccentricity || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Saques de puerta</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.goal_kicks || '0'
-          }}</label>
+          <label style="text-align: start">Saques de puerta</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.goal_kicks || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Saques de mano</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.hand_throws || '0'
-          }}</label>
+          <label style="text-align: start">Saques de mano</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.hand_throws || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Saques largos</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.long_throws || '0'
-          }}</label>
+          <label style="text-align: start">Saques largos</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.long_throws || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Uno contra uno</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.one_on_ones || '0'
-          }}</label>
+          <label style="text-align: start">Uno contra uno</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.one_on_ones || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Bloqueos</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.blocking || '0'
-          }}</label>
+          <label style="text-align: start">Bloqueos</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.blocking || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Reflejos</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.goalkeeper_stats?.reflexes || '0'
-          }}</label>
+          <label style="text-align: start">Reflejos</label>
+          <label>{{ player?.fm24_data?.goalkeeper_stats?.reflexes || '0' }}</label>
         </div>
       </div>
     </div>
@@ -201,56 +183,40 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Fisico</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.physical || '0'
-          }}</label>
+          <label style="text-align: start">Fisico</label>
+          <label>{{ player?.fm24_data?.physical_stats?.physical || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Resistencia</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.stamina || '0'
-          }}</label>
+          <label style="text-align: start">Resistencia</label>
+          <label>{{ player?.fm24_data?.physical_stats?.stamina || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Velocidad</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.agility || '0'
-          }}</label>
+          <label style="text-align: start">Velocidad</label>
+          <label>{{ player?.fm24_data?.physical_stats?.agility || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Ritmo</label>
-          <label style="width: 140px">{{ player?.fm24_data?.physical_stats?.pace || '0' }}</label>
+          <label style="text-align: start">Ritmo</label>
+          <label>{{ player?.fm24_data?.physical_stats?.pace || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Aceleración</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.acceleration || '0'
-          }}</label>
+          <label style="text-align: start">Aceleración</label>
+          <label>{{ player?.fm24_data?.physical_stats?.acceleration || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Alcance áereo</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.aerial_reach || '0'
-          }}</label>
+          <label style="text-align: start">Alcance áereo</label>
+          <label>{{ player?.fm24_data?.physical_stats?.aerial_reach || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Salto</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.jumping_reach || '0'
-          }}</label>
+          <label style="text-align: start">Salto</label>
+          <label>{{ player?.fm24_data?.physical_stats?.jumping_reach || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Balance</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.balance || '0'
-          }}</label>
+          <label style="text-align: start">Balance</label>
+          <label>{{ player?.fm24_data?.physical_stats?.balance || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Fuerza</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.physical_stats?.strength || '0'
-          }}</label>
+          <label style="text-align: start">Fuerza</label>
+          <label>{{ player?.fm24_data?.physical_stats?.strength || '0' }}</label>
         </div>
       </div>
     </div>
@@ -282,82 +248,56 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Tecnica</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.technique || '0'
-          }}</label>
+          <label style="text-align: start">Tecnica</label>
+          <label>{{ player?.fm24_data?.technical_stats?.technique || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Pase</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.passing || '0'
-          }}</label>
+          <label style="text-align: start">Pase</label>
+          <label>{{ player?.fm24_data?.technical_stats?.passing || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Centros</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.centering || '0'
-          }}</label>
+          <label style="text-align: start">Centros</label>
+          <label>{{ player?.fm24_data?.technical_stats?.centering || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Cruces</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.crossing || '0'
-          }}</label>
+          <label style="text-align: start">Cruces</label>
+          <label>{{ player?.fm24_data?.technical_stats?.crossing || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Regate</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.dribbling || '0'
-          }}</label>
+          <label style="text-align: start">Regate</label>
+          <label>{{ player?.fm24_data?.technical_stats?.dribbling || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Fuera del balón</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.off_the_ball || '0'
-          }}</label>
+          <label style="text-align: start">Fuera del balón</label>
+          <label>{{ player?.fm24_data?.technical_stats?.off_the_ball || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Finalización</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.finishing || '0'
-          }}</label>
+          <label style="text-align: start">Finalización</label>
+          <label>{{ player?.fm24_data?.technical_stats?.finishing || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Juego áereo</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.heading || '0'
-          }}</label>
+          <label style="text-align: start">Juego áereo</label>
+          <label>{{ player?.fm24_data?.technical_stats?.heading || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Marcaje</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.marking || '0'
-          }}</label>
+          <label style="text-align: start">Marcaje</label>
+          <label>{{ player?.fm24_data?.technical_stats?.marking || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Tiros largos</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.long_shots || '0'
-          }}</label>
+          <label style="text-align: start">Tiros largos</label>
+          <label>{{ player?.fm24_data?.technical_stats?.long_shots || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Entradas</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.tackling || '0'
-          }}</label>
+          <label style="text-align: start">Entradas</label>
+          <label>{{ player?.fm24_data?.technical_stats?.tackling || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Anticipación</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.anticipation || '0'
-          }}</label>
+          <label style="text-align: start">Anticipación</label>
+          <label>{{ player?.fm24_data?.technical_stats?.anticipation || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Posicionamiento</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.technical_stats?.positioning || '0'
-          }}</label>
+          <label style="text-align: start">Posicionamiento</label>
+          <label>{{ player?.fm24_data?.technical_stats?.positioning || '0' }}</label>
         </div>
       </div>
     </div>
@@ -389,22 +329,16 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Tiros libres</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.dead_ball_stats?.free_kick_taking || '0'
-          }}</label>
+          <label style="text-align: start">Tiros libres</label>
+          <label>{{ player?.fm24_data?.dead_ball_stats?.free_kick_taking || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Córners</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.dead_ball_stats?.corner_taking || '0'
-          }}</label>
+          <label style="text-align: start">Córners</label>
+          <label>{{ player?.fm24_data?.dead_ball_stats?.corner_taking || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Penaltis</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.dead_ball_stats?.penalty_taking || '0'
-          }}</label>
+          <label style="text-align: start">Penaltis</label>
+          <label>{{ player?.fm24_data?.dead_ball_stats?.penalty_taking || '0' }}</label>
         </div>
       </div>
     </div>
@@ -436,62 +370,48 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Comunicación</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.communication || '0'
-          }}</label>
+          <label style="text-align: start">Comunicación</label>
+          <label>{{ player?.fm24_data?.mental_stats?.communication || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Serenidad</label>
-          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.serenity || '0' }}</label>
+          <label style="text-align: start">Serenidad</label>
+          <label>{{ player?.fm24_data?.mental_stats?.serenity || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Decisión</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.decisions || '0'
-          }}</label>
+          <label style="text-align: start">Decisión</label>
+          <label>{{ player?.fm24_data?.mental_stats?.decisions || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Agresión</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.aggression || '0'
-          }}</label>
+          <label style="text-align: start">Agresión</label>
+          <label>{{ player?.fm24_data?.mental_stats?.aggression || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Liderazgo</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.leadership || '0'
-          }}</label>
+          <label style="text-align: start">Liderazgo</label>
+          <label>{{ player?.fm24_data?.mental_stats?.leadership || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Valentia</label>
-          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.bravery || '0' }}</label>
+          <label style="text-align: start">Valentia</label>
+          <label>{{ player?.fm24_data?.mental_stats?.bravery || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Determinación</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.determination || '0'
-          }}</label>
+          <label style="text-align: start">Determinación</label>
+          <label>{{ player?.fm24_data?.mental_stats?.determination || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Concentración</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.concentration || '0'
-          }}</label>
+          <label style="text-align: start">Concentración</label>
+          <label>{{ player?.fm24_data?.mental_stats?.concentration || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Visión</label>
-          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.vision || '0' }}</label>
+          <label style="text-align: start">Visión</label>
+          <label>{{ player?.fm24_data?.mental_stats?.vision || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Juego en equipo</label>
-          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.teamwork || '0' }}</label>
+          <label style="text-align: start">Juego en equipo</label>
+          <label>{{ player?.fm24_data?.mental_stats?.teamwork || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Sacrificio</label>
-          <label style="width: 140px">{{
-            player?.fm24_data?.mental_stats?.sacrifice || '0'
-          }}</label>
+          <label style="text-align: start">Sacrificio</label>
+          <label>{{ player?.fm24_data?.mental_stats?.sacrifice || '0' }}</label>
         </div>
       </div>
     </div>
@@ -523,28 +443,20 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Goles por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.shooting_stats?.goals_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Goles por 90m</label>
+          <label>{{ player?.performance_data?.shooting_stats?.goals_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Tiros por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.shooting_stats?.shots_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Tiros por 90m</label>
+          <label>{{ player?.performance_data?.shooting_stats?.shots_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Goles por disparo (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.shooting_stats?.goals_per_shot || '0'
-          }}</label>
+          <label style="text-align: start">Goles por disparo (%)</label>
+          <label>{{ player?.performance_data?.shooting_stats?.goals_per_shot || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Precisión tiros a porteria (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.shooting_stats?.shots_on_target_rate || '0'
-          }}</label>
+          <label style="text-align: start">Precisión tiros a porteria (%)</label>
+          <label>{{ player?.performance_data?.shooting_stats?.shots_on_target_rate || '0' }}</label>
         </div>
       </div>
     </div>
@@ -576,68 +488,46 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Regates intentados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.takeon_att_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Regates intentados por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.takeon_att_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Regates exitosos (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.takeon_ratio || '0'
-          }}</label>
+          <label style="text-align: start">Regates exitosos (%)</label>
+          <label>{{ player?.performance_data?.possession_stats?.takeon_ratio || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Recepciones por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.recv_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Recepciones por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.recv_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Recepciones progresivas por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.prog_recv_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Recepciones progresivas por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.prog_recv_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Conducciones por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.carries_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Conducciones por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.carries_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Conducciones progresivas por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.prog_carries_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Conducciones progresivas por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.prog_carries_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
-            >Conducciones al área de penalti por 90m</label
-          >
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.carry_pen_area_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Conducciones al área de penalti por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.carry_pen_area_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
-            >Conducciones al último tercio por 90m</label
-          >
-          <label style="width: 140px">{{
+          <label style="text-align: start">Conducciones al último tercio por 90m</label>
+          <label>{{
             player?.performance_data?.possession_stats?.carry_final_final3rd_p90 || '0'
           }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Distancia de conducción por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.possession_stats?.carry_dist_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Distancia de conducción por 90m</label>
+          <label>{{ player?.performance_data?.possession_stats?.carry_dist_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
-            >Distancia de conducción progresiva por 90m</label
-          >
-          <label style="width: 140px">{{
+          <label style="text-align: start">Distancia de conducción progresiva por 90m</label>
+          <label>{{
             player?.performance_data?.possession_stats?.prog_carry_dist_p90 || '0'
           }}</label>
         </div>
@@ -671,52 +561,36 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Precisión de pases (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.pass_acc || '0'
-          }}</label>
+          <label style="text-align: start">Precisión de pases (%)</label>
+          <label>{{ player?.performance_data?.passing_stats?.pass_acc || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Pases intentados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.pass_att_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Pases intentados por 90m</label>
+          <label>{{ player?.performance_data?.passing_stats?.pass_att_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Precisión de pases cortos (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.short_acc || '0'
-          }}</label>
+          <label style="text-align: start">Precisión de pases cortos (%)</label>
+          <label>{{ player?.performance_data?.passing_stats?.short_acc || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Pases cortos intentados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.short_att_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Pases cortos intentados por 90m</label>
+          <label>{{ player?.performance_data?.passing_stats?.short_att_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Precisión de pases medios (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.medium_acc || '0'
-          }}</label>
+          <label style="text-align: start">Precisión de pases medios (%)</label>
+          <label>{{ player?.performance_data?.passing_stats?.medium_acc || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Pases medios intentados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.medium_att_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Pases medios intentados por 90m</label>
+          <label>{{ player?.performance_data?.passing_stats?.medium_att_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Precisión de pases largos (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.long_acc || '0'
-          }}</label>
+          <label style="text-align: start">Precisión de pases largos (%)</label>
+          <label>{{ player?.performance_data?.passing_stats?.long_acc || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Pases largos intentados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.passing_stats?.long_att_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Pases largos intentados por 90m</label>
+          <label>{{ player?.performance_data?.passing_stats?.long_att_p90 || '0' }}</label>
         </div>
       </div>
     </div>
@@ -744,22 +618,16 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Recuperaciones por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.duel_stats?.ball_recov_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Recuperaciones por 90m</label>
+          <label>{{ player?.performance_data?.duel_stats?.ball_recov_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Duelos aéreos por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.duel_stats?.air_duel_total_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Duelos aéreos por 90m</label>
+          <label>{{ player?.performance_data?.duel_stats?.air_duel_total_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Duelos aéreos ganados (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.duel_stats?.air_duel_ratio || '0'
-          }}</label>
+          <label style="text-align: start">Duelos aéreos ganados (%)</label>
+          <label>{{ player?.performance_data?.duel_stats?.air_duel_ratio || '0' }}</label>
         </div>
       </div>
     </div>
@@ -791,66 +659,58 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
-            >Creación de ocasiones de tiros por 90m</label
-          >
-          <label style="width: 140px">{{
-            player?.performance_data?.shots_goals_creation_stats?.sca_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Creación de ocasiones de tiros por 90m</label>
+          <label>{{ player?.performance_data?.shots_goals_creation_stats?.sca_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
-            >Creación de ocasiones de gol por 90m</label
-          >
-          <label style="width: 140px">{{
-            player?.performance_data?.shots_goals_creation_stats?.gca_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Creación de ocasiones de gol por 90m</label>
+          <label>{{ player?.performance_data?.shots_goals_creation_stats?.gca_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
+          <label style="text-align: start"
             >Creación de ocasiones de tiros a balón parado por 90m</label
           >
-          <label style="width: 140px">{{
+          <label>{{
             player?.performance_data?.shots_goals_creation_stats?.stopped_pass_sca_p90 || '0'
           }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
+          <label style="text-align: start"
             >Creación de ocasiones de goles a balón parado por 90m</label
           >
-          <label style="width: 140px">{{
+          <label>{{
             player?.performance_data?.shots_goals_creation_stats?.stopped_pass_gca_p90 || '0'
           }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
+          <label style="text-align: start"
             >Creación de ocasiones de tiros en movimiento por 90m</label
           >
-          <label style="width: 140px">{{
+          <label>{{
             player?.performance_data?.shots_goals_creation_stats?.live_pass_sca_p90 || '0'
           }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
+          <label style="text-align: start"
             >Creación de ocasiones de goles en movimiento por 90m</label
           >
-          <label style="width: 140px">{{
+          <label>{{
             player?.performance_data?.shots_goals_creation_stats?.live_pass_gca_p90 || '0'
           }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
+          <label style="text-align: start"
             >Creación de ocasiones de tiros mediante regates por 90m</label
           >
-          <label style="width: 140px">{{
+          <label>{{
             player?.performance_data?.shots_goals_creation_stats?.takeon_sca_p90 || '0'
           }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start"
+          <label style="text-align: start"
             >Creación de ocasiones de goles mediante regates por 90m</label
           >
-          <label style="width: 140px">{{
+          <label>{{
             player?.performance_data?.shots_goals_creation_stats?.takeon_gca_p90 || '0'
           }}</label>
         </div>
@@ -884,52 +744,36 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Entradas por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.tkl_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Entradas por 90m</label>
+          <label>{{ player?.performance_data?.defensive_stats?.tkl_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Entradas con exito (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.tkl_ratio || '0'
-          }}</label>
+          <label style="text-align: start">Entradas con exito (%)</label>
+          <label>{{ player?.performance_data?.defensive_stats?.tkl_ratio || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Regates deribados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.drb_tkl_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Regates deribados por 90m</label>
+          <label>{{ player?.performance_data?.defensive_stats?.drb_tkl_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Regates deribados exitosos (%)</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.drb_tkl_ratio || '0'
-          }}</label>
+          <label style="text-align: start">Regates deribados exitosos (%)</label>
+          <label>{{ player?.performance_data?.defensive_stats?.drb_tkl_ratio || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Bloqueos por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.blocks_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Bloqueos por 90m</label>
+          <label>{{ player?.performance_data?.defensive_stats?.blocks_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Tiros bloqueados por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.sh_blocks_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Tiros bloqueados por 90m</label>
+          <label>{{ player?.performance_data?.defensive_stats?.sh_blocks_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Intercepciones por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.int_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Intercepciones por 90m</label>
+          <label>{{ player?.performance_data?.defensive_stats?.int_p90 || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Despejes por 90m</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.defensive_stats?.clr_p90 || '0'
-          }}</label>
+          <label style="text-align: start">Despejes por 90m</label>
+          <label>{{ player?.performance_data?.defensive_stats?.clr_p90 || '0' }}</label>
         </div>
       </div>
     </div>
@@ -961,14 +805,12 @@
         style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
       >
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Ratios salvadas</label>
-          <label style="width: 140px">{{
-            player?.performance_data?.goalkeeping_stats?.save_ratio || '0'
-          }}</label>
+          <label style="text-align: start">Ratios salvadas</label>
+          <label>{{ player?.performance_data?.goalkeeping_stats?.save_ratio || '0' }}</label>
         </div>
         <div class="row-start" style="justify-content: space-between">
-          <label style="width: 140px; text-align: start">Ratio porterias a 0 (%)</label>
-          <label style="width: 140px">{{
+          <label style="text-align: start">Ratio porterias a 0 (%)</label>
+          <label>{{
             player?.performance_data?.goalkeeping_stats?.clean_sheets_ratio || '0'
           }}</label>
         </div>
