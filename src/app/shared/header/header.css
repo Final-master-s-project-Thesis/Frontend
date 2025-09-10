@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--color-light-gray);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  background: #fff;
+  background: var(--color-white);
 }
 
 .logo {
@@ -58,7 +58,7 @@
     position: absolute;
     top: 60px;
     right: 0;
-    background: #fff;
+    background: var(--color-white);
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
@@ -76,4 +76,22 @@
   .hamburger {
     display: flex; /* aparece en móvil */
   }
+}
+
+/* Tema toggle */
+.theme-toggle {
+  margin-left: 1rem;
+  border: 1px solid var(--color-light-gray);
+  background: var(--color-white);
+  color: var(--color-dark);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  background: #f3f4f6;
+}
+
+.invert-logo {
+  filter: invert(1);
 }

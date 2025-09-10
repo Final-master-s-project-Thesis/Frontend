@@ -1,7 +1,7 @@
 <div class="header">
   <nav class="navbar">
     <div class="logo" routerLink="/general">
-      <img src="logo.png" alt="logo" width="30" />
+      <img src="logo.png" alt="logo" width="30" [ngClass]="{ 'invert-logo': isDarkMode }" />
       <span class="text-lg-bold">SRFF</span>
     </div>
 
@@ -19,5 +19,16 @@
       <li><a routerLink="/compare" routerLinkActive="active">Comparar</a></li>
       <li><a routerLink="/similar" routerLinkActive="active">Similares</a></li>
     </ul>
+
+    <!-- Toggle tema -->
+    <button
+      class="theme-toggle"
+      type="button"
+      (click)="toggleTheme()"
+      [attr.aria-pressed]="isDarkMode"
+    >
+      <span *ngIf="!isDarkMode">🌙</span>
+      <span *ngIf="isDarkMode">☀️</span>
+    </button>
   </nav>
 </div>

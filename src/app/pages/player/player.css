@@ -1,0 +1,14 @@
+/* Card base para respetar tema */
+.card {
+  background: var(--color-white);
+  color: var(--color-dark);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+}
+
+.input-field {
+  background: var(--color-white);
+  color: var(--color-dark);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+}
