@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "dist/SRFF/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.csr.html"
+      }
+    ]
+  }
+}
