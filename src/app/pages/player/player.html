@@ -1,1 +1,984 @@
-<p>player works!</p>
+<div *ngIf="!isLoading">
+  <div class="card column">
+    <div
+      style="margin: 2rem 3rem 0 2rem; justify-content: space-between; width: 95%; display: flex"
+    >
+      <label class="text-xs-medium text-dark" style="width: 140px; text-align: start"
+        >ATRIBUTOS</label
+      >
+
+      <label class="text-xs-medium text-dark" style="width: 140px" *ngIf="player?.player?.name">{{
+        formatName(player?.player?.name)
+      }}</label>
+    </div>
+
+    <hr class="divider" style="margin-right: -1050px; width: 100%" />
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">GENERAL</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showGeneral"
+              (change)="toggle('showGeneral')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showGeneral"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">LIGA</label>
+          <label style="width: 140px">{{ getLeagueName(player?.player?.club_id) }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">CLUB</label>
+          <label style="width: 140px">{{ getClubName(player?.player?.club_id) }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">NACIONALIDAD</label>
+          <label style="width: 140px">{{ player?.player?.country_code || 'NA' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">EDAD</label>
+          <label style="width: 140px">{{ player?.player?.age || 'NA' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">POSICIÓN</label>
+          <label style="width: 140px">{{ player?.player?.position || 'NA' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">ALTURA</label>
+          <label style="width: 140px">{{ player?.player?.height || 'NA' }} cm</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">PESO</label>
+          <label style="width: 140px">{{ player?.player?.weight || 'NA' }} kg</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">VALOR MERCADO</label>
+          <label style="width: 140px">{{ playerFormateValue }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">VALOR ESTIMADO</label>
+          <label style="width: 140px">{{ playerFormateEstimated }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">SALARIO MENSUAL</label>
+          <label style="width: 140px">{{ playerFormateSalary }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">TALENTO</label>
+          <label style="width: 140px">{{ player?.player?.talent || 'NA' }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">FM STATS DE PORTERO</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showGoalkeeperFM"
+              (change)="toggle('showGoalkeeperFM')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showGoalkeeperFM"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Salidas</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.rushing_out || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Dominio del área</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.command_of_area || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Puños</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.punching || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Excenticidad</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.eccentricity || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Saques de puerta</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.goal_kicks || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Saques de mano</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.hand_throws || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Saques largos</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.long_throws || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Uno contra uno</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.one_on_ones || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Bloqueos</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.blocking || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Reflejos</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.goalkeeper_stats?.reflexes || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">FM STATS FISICOS</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showPhysicalFM"
+              (change)="toggle('showPhysicalFM')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showPhysicalFM"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Fisico</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.physical || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Resistencia</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.stamina || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Velocidad</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.agility || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Ritmo</label>
+          <label style="width: 140px">{{ player?.fm24_data?.physical_stats?.pace || '0' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Aceleración</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.acceleration || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Alcance áereo</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.aerial_reach || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Salto</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.jumping_reach || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Balance</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.balance || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Fuerza</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.physical_stats?.strength || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">FM STATS TECNICOS</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showTechnicalFM"
+              (change)="toggle('showTechnicalFM')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showTechnicalFM"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Tecnica</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.technique || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Pase</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.passing || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Centros</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.centering || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Cruces</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.crossing || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Regate</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.dribbling || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Fuera del balón</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.off_the_ball || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Finalización</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.finishing || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Juego áereo</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.heading || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Marcaje</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.marking || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Tiros largos</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.long_shots || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Entradas</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.tackling || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Anticipación</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.anticipation || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Posicionamiento</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.technical_stats?.positioning || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">FM STATS BALÓN PARADO</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showDeadBallFM"
+              (change)="toggle('showDeadBallFM')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showDeadBallFM"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Tiros libres</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.dead_ball_stats?.free_kick_taking || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Córners</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.dead_ball_stats?.corner_taking || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Penaltis</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.dead_ball_stats?.penalty_taking || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">FM STATS MENTAL</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showMentalFM"
+              (change)="toggle('showMentalFM')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showMentalFM"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Comunicación</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.communication || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Serenidad</label>
+          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.serenity || '0' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Decisión</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.decisions || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Agresión</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.aggression || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Liderazgo</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.leadership || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Valentia</label>
+          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.bravery || '0' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Determinación</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.determination || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Concentración</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.concentration || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Visión</label>
+          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.vision || '0' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Juego en equipo</label>
+          <label style="width: 140px">{{ player?.fm24_data?.mental_stats?.teamwork || '0' }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Sacrificio</label>
+          <label style="width: 140px">{{
+            player?.fm24_data?.mental_stats?.sacrifice || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: TIROS</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showShooting"
+              (change)="toggle('showShooting')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showShooting"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Goles por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.shooting_stats?.goals_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Tiros por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.shooting_stats?.shots_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Goles por disparo (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.shooting_stats?.goals_per_shot || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Precisión tiros a porteria (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.shooting_stats?.shots_on_target_rate || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: POSESIÓN</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showPossession"
+              (change)="toggle('showPossession')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showPossession"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Regates intentados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.takeon_att_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Regates exitosos (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.takeon_ratio || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Recepciones por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.recv_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Recepciones progresivas por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.prog_recv_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Conducciones por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.carries_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Conducciones progresivas por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.prog_carries_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Conducciones al área de penalti por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.carry_pen_area_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Conducciones al último tercio por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.carry_final_final3rd_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Distancia de conducción por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.carry_dist_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Distancia de conducción progresiva por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.possession_stats?.prog_carry_dist_p90 || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: PASES</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showPassing"
+              (change)="toggle('showPassing')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showPassing"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Precisión de pases (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.pass_acc || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Pases intentados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.pass_att_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Precisión de pases cortos (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.short_acc || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Pases cortos intentados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.short_att_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Precisión de pases medios (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.medium_acc || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Pases medios intentados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.medium_att_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Precisión de pases largos (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.long_acc || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Pases largos intentados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.passing_stats?.long_att_p90 || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: DUELOS</label>
+
+          <label class="switch">
+            <input type="checkbox" [checked]="toggles.showDuel" (change)="toggle('showDuel')" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showDuel"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Recuperaciones por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.duel_stats?.ball_recov_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Duelos aéreos por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.duel_stats?.air_duel_total_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Duelos aéreos ganados (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.duel_stats?.air_duel_ratio || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: CREACIÓN DE OCASIONES</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showCreationActions"
+              (change)="toggle('showCreationActions')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showCreationActions"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de tiros por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.sca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de gol por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.gca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de tiros a balón parado por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.stopped_pass_sca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de goles a balón parado por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.stopped_pass_gca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de tiros en movimiento por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.live_pass_sca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de goles en movimiento por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.live_pass_gca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de tiros mediante regates por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.takeon_sca_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start"
+            >Creación de ocasiones de goles mediante regates por 90m</label
+          >
+          <label style="width: 140px">{{
+            player?.performance_data?.shots_goals_creation_stats?.takeon_gca_p90 || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: DEFENSIVOS</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showDefensive"
+              (change)="toggle('showDefensive')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showDefensive"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Entradas por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.tkl_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Entradas con exito (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.tkl_ratio || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Regates deribados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.drb_tkl_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Regates deribados exitosos (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.drb_tkl_ratio || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Bloqueos por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.blocks_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Tiros bloqueados por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.sh_blocks_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Intercepciones por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.int_p90 || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Despejes por 90m</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.defensive_stats?.clr_p90 || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+
+    <div class="card column" style="padding: 0">
+      <div
+        style="margin: 2rem 3rem 0 3rem; justify-content: space-between; width: 93%; display: flex"
+      >
+        <div style="justify-content: space-between; width: 100%; display: flex">
+          <label class="text-md-semibold text-dark">STATS RENDIMIENTO: PORTERIA</label>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="toggles.showGoalkeeping"
+              (change)="toggle('showGoalkeeping')"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div
+        *ngIf="toggles.showGoalkeeping"
+        style="padding: 0rem 3rem 2rem 3rem; gap: 20px; display: flex; flex-direction: column"
+      >
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Ratios salvadas</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.goalkeeping_stats?.save_ratio || '0'
+          }}</label>
+        </div>
+        <div class="row-start" style="justify-content: space-between">
+          <label style="width: 140px; text-align: start">Ratio porterias a 0 (%)</label>
+          <label style="width: 140px">{{
+            player?.performance_data?.goalkeeping_stats?.clean_sheets_ratio || '0'
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <!---->
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading-container">Cargando...</div>
+<div *ngIf="error" class="loading-container">
+  Error al cargar los datos del jugador. Intente nuevamente más tarde.
+</div>

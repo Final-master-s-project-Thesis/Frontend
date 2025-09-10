@@ -162,8 +162,6 @@ export class Compare implements OnInit {
         next: (data) => {
           this.players = data;
 
-          console.log(this.players);
-
           this.playerFormateValue1 = formatValueMoney(this.players[0].player.market_value);
           this.playerFormateValue2 = formatValueMoney(this.players[1].player.market_value);
           this.playerFormateEstimated1 = formatValueMoney(this.players[0].player.estimated_value);

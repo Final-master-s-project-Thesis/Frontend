@@ -20,7 +20,7 @@ export interface Player {
 export interface PlayerAllData {
   player: Player;
   fm24_data?: FM24Data;
-  performances_data?: PerformanceData;
+  performance_data?: PerformanceData;
 }
 
 export interface PlayerPartialData {
