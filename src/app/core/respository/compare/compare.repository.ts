@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Repository } from '../../base/repository.repository';
-import { Player } from '../../models/player/player';
+import { Player, PlayerAllData } from '../../models/player/player';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class CompareRepository extends Repository {
   }
 
   getPlayersToCompare(player_id1: string, player_id2: string) {
-    return this.doRequest<Player[]>('get', `/compare/`, {
+    return this.doRequest<PlayerAllData[]>('get', `/compare/`, {
       params: { player_id1: player_id1, player_id2: player_id2 },
     });
   }
